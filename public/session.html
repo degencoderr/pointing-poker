@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointing Poker - Session</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body onload="joinGame()">
+    <div id="app">
+        <h1>Pointing Poker Session</h1>
+        <div id="main-container">
+            <!-- Players List -->
+            <div id="players-container">
+                <h2>Players</h2>
+                <div id="players"></div>
+            </div>
+
+            <!-- Voting Results and Statistics -->
+            <div id="results-container" class="hidden">
+                <h2>Vote Results</h2>
+                <div id="vote-results"></div>
+                <h3>Statistics</h3>
+                <ul id="statistics">
+                    <li>Average: <span id="average-vote">0</span></li>
+                    <li>Consensus: <span id="consensus-status">No consensus</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scrum Master Controls -->
+        <div id="host-controls" class="hidden">
+            <button onclick="showVotes()">Show Votes</button>
+            <button onclick="clearVotes()">Clear Votes</button>
+        </div>
+
+        <!-- Voting Buttons -->
+        <div id="cards" class="hidden">
+            <button onclick="sendEstimate(0)">0 points</button>
+            <button onclick="sendEstimate(1)">1 point</button>
+            <button onclick="sendEstimate(2)">2 points</button>
+            <button onclick="sendEstimate(3)">3 points</button>
+            <button onclick="sendEstimate(5)">5 points</button>
+            <button onclick="sendEstimate(8)">8 points</button>
+            <button onclick="sendEstimate(13)">13 points</button>
+            <button onclick="sendEstimate(21)">21 points</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

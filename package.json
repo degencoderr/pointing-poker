@@ -1,0 +1,14 @@
+{
+  "name": "pointing-poker",
+  "version": "1.0.0",
+  "description": "A simple pointing poker app with session management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.1",
+    "uuid": "^8.3.2"
+  }
+}

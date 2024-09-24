@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Pointing Poker Session</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Join Pointing Poker Session</h1>
+        <form id="joinForm">
+            <label for="username">Enter your name:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Join Session</button>
+        </form>
+    </div>
+
+    <script>
+        // Get sessionId from URL
+        const sessionId = new URLSearchParams(window.location.search).get('sessionId');
+        
+        // Handle form submission
+        document.getElementById('joinForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent default form submission
+            
+            const username = document.getElementById('username').value;
+            if (username) {
+                // Store the username in sessionStorage (or localStorage) temporarily
+                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('sessionId', sessionId);
+
+                // Redirect to session page (without username in the URL)
+                window.location.href = `/session.html?sessionId=${sessionId}`;
+            }
+        });
+    </script>
+</body>
+</html>
