@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pointing Poker - Landing Page</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
-    <div id="app">
+    <div id="landing-container">
         <h1>Pointing Poker</h1>
-        <button onclick="createSession()">Create a Session</button>
+        <p>Scrum planning made simple and fun!</p>
+        <button id="createSessionButton" onclick="createSession()">Create a Session</button>
     </div>
 
     <script>
         function createSession() {
-    fetch('/create-session')
-        .then(response => response.json())
-        .then(data => {
-            // Redirect to join.html with only sessionId in the URL
-            window.location.href = `/join.html?sessionId=${data.sessionId}`;
-        })
-        .catch(err => console.log(err));
-}
-
-
+            fetch('/create-session')
+                .then(response => response.json())
+                .then(data => {
+                    // Redirect to join.html with only sessionId in the URL
+                    window.location.href = `/join.html?sessionId=${data.sessionId}`;
+                })
+                .catch(err => console.log(err));
+        }
     </script>
 </body>
 </html>

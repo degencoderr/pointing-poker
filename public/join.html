@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Pointing Poker Session</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/join.css"> <!-- Reference to the new join.css file -->
 </head>
 <body>
-    <div id="app">
-        <h1>Join Pointing Poker Session</h1>
+    <div id="join-container">
+        <h1>Join a Pointing Poker Session</h1>
+        <p>Enter your name to join the session</p>
+
         <form id="joinForm">
-            <label for="username">Enter your name:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" placeholder="Enter your name" required>
             <button type="submit">Join Session</button>
         </form>
     </div>
 
     <script>
-        // Get sessionId from URL
+        // Get sessionId from the URL
         const sessionId = new URLSearchParams(window.location.search).get('sessionId');
-        
-        // Handle form submission
-        document.getElementById('joinForm').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent default form submission
-            
-            const username = document.getElementById('username').value;
-            if (username) {
-                // Store the username in sessionStorage (or localStorage) temporarily
-                sessionStorage.setItem('username', username);
-                sessionStorage.setItem('sessionId', sessionId);
 
-                // Redirect to session page (without username in the URL)
-                window.location.href = `/session.html?sessionId=${sessionId}`;
+        // Handle the join form submission
+        document.getElementById('joinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+
+            if (username) {
+                sessionStorage.setItem('username', username);  // Store username in session storage
+                window.location.href = `/session.html?sessionId=${sessionId}`;  // Redirect to session page
             }
         });
     </script>
