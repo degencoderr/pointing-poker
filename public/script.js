@@ -18,17 +18,23 @@ function joinGame() {
 socket.on('players', players => {
     const playersDiv = document.getElementById('players');
     playersDiv.innerHTML = '';  // Clear the display
+
     players.forEach(player => {
-        let playerStatus = 'Not voted';  // Default status is not voted
-        let playerStyle = 'color: gray;';  // Default style is gray
+        let playerClass = 'not-voted';  // Default class for non-voted players
+        let playerStatus = 'Not voted';
 
         if (player.estimate !== null) {
+            playerClass = 'voted';  // Change class when voted
             playerStatus = 'Voted';
-            playerStyle = 'color: green;';  // Change to green when voted
         }
 
-        // Display the player's name along with their voting status
-        playersDiv.innerHTML += `<p style="${playerStyle}">${player.username}: ${playerStatus}</p>`;
+        // Display the player's name and voting status (not the actual vote)
+        playersDiv.innerHTML += `
+            <div class="player-card ${playerClass}">
+                <span>${player.username}</span>
+                <span>${playerStatus}</span>  <!-- Only show voting status -->
+            </div>
+        `;
     });
 });
 
@@ -73,7 +79,12 @@ socket.on('results', players => {
 
     // Display each player's vote
     players.forEach(player => {
-        playersDiv.innerHTML += `<p>${player.username}: ${player.estimate !== null ? player.estimate : 'Waiting...'}</p>`;
+        playersDiv.innerHTML += `
+            <div class="player-card voted">
+                <span>${player.username}</span>
+                <span>${player.estimate !== null ? player.estimate : 'Waiting...'}</span>
+            </div>
+        `;
     });
 
     // Calculate average
@@ -134,7 +145,12 @@ socket.on('clearVotes', (players) => {
 
     // Re-render the players with "Not voted" status
     players.forEach(player => {
-        playersDiv.innerHTML += `<p style="color: gray;">${player.username}: Not voted</p>`;
+        playersDiv.innerHTML += `
+            <div class="player-card not-voted">
+                <span>${player.username}</span>
+                <span>Not voted</span>
+            </div>
+        `;
     });
 
     // Clear the results display

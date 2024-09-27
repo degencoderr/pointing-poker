@@ -8,7 +8,7 @@
 /* Join page styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #dedede;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body {
 
 #join-container {
     text-align: center;
-    background-color: white;
+    background-color: #e6e6fa;
     padding: 50px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -50,18 +50,18 @@ input {
 
 /* Button styling */
 button {
-    background-color: #007bff;
+    background-color: #b19cd9;
     color: white;
     border: none;
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #a085c7;
     transform: translateY(-2px);
 }
 

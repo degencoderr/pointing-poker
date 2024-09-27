@@ -6,9 +6,9 @@
 }
 
 /* Landing page styling */
-body {
+#body-back {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #dedede;  /* New background color */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body {
 
 #landing-container {
     text-align: center;
-    background-color: white;
+    background-color: #e6e6fa;
     padding: 50px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@ p {
 
 /* Button styling */
 button {
-    background-color: #007bff;
+    background-color: #b19cd9;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -50,7 +50,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #a085c7;
     transform: translateY(-2px);
 }
 

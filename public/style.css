@@ -1,11 +1,30 @@
 /* General Styling */
-body {
+/* Add Flexbox to center the #app element */
+body, #body-back {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #dedede;
     text-align: center;
-    padding: 20px;
+    padding: 0;
     margin: 0;
+    height: 100vh;  /* Make sure the body takes up full height */
+    display: flex;
+    justify-content: center;  /* Horizontally center the content */
+    align-items: center;  /* Vertically center the content */
 }
+
+#app {
+    max-width: 800px;
+    max-height: 600px;  /* Fix the height to avoid expanding */
+    margin: 0 auto;
+    background-color: #e6e6fa;  /* Light lavender color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;  /* Prevent overflow from expanding the container */
+    display: flex;
+    flex-direction: column;
+}
+
 
 h1 {
     color: #333;
@@ -13,14 +32,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-#app {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
 
 /* Main Layout */
 #main-container {
@@ -31,16 +42,16 @@ h1 {
 
 #players-container {
     width: 55%;
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
+    background-color: #d9d9f3;
+    border: 1px solid #b5b5d6;
     padding: 15px;
     border-radius: 10px;
 }
 
 #results-container {
     width: 40%;
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
+    background-color: #d9d9f3;
+    border: 1px solid #b5b5d6;
     padding: 15px;
     border-radius: 10px;
     text-align: left;
@@ -52,7 +63,7 @@ h1 {
 
 /* Voting Buttons */
 #cards button {
-    background-color: #007bff;
+    background-color: #b19cd9;
     color: white;
     padding: 10px 20px;
     margin: 5px;
@@ -64,7 +75,7 @@ h1 {
 }
 
 #cards button:hover {
-    background-color: #0056b3;
+    background-color: #a085c7;
 }
 
 #cards {
@@ -146,5 +157,56 @@ h1 {
 }
 
 #consensus-status {
+    font-weight: bold;
+}
+
+/* Player card style for each participant */
+.player-card {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.player-card.voted {
+    background-color: #c3e6cb;  /* Green when voted */
+}
+
+.player-card.not-voted {
+    background-color: #f8d7da;  /* Red when not voted */
+}
+
+/* Updated player card style based on the provided image */
+.player-card {
+    padding: 5px;
+    margin-bottom: 5px;  /* More distinct spacing between cards */
+    border-radius: 2px;
+    background-color: #d1ecf1;  /* Default light blue background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #17a2b8;  /* Blue left border for visual separation */
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slightly deeper shadow for emphasis */
+    transition: background-color 0.3s ease;
+}
+
+.player-card.voted {
+    background-color: #c3e6cb;  /* Green background when voted */
+    border-left: 5px solid #28a745;  /* Green border when voted */
+}
+
+.player-card.not-voted {
+    background-color: #f8d7da;  /* Red background when not voted */
+    border-left: 5px solid #dc3545;  /* Red border when not voted */
+}
+
+.player-card span {
+    font-size: 16px;
     font-weight: bold;
 }
